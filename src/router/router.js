@@ -1,11 +1,11 @@
 import App from '../app'
 // 组件懒加载，把路由对应的组件定义成异步组件，这样当路由被访问的时候才加载对应组件，下边第三个参数可以把某个路由下的所有组件都打包在同个异步块中
-// const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
+const home = r => require.ensure([], () => r(require('../page/home/home.vue')), 'home')
 // const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
 // const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'msite')
 // const search = r => require.ensure([], () => r(require('../page/search/search')), 'search')
 // const shop = r => require.ensure([], () => r(require('../page/shop/shop')), 'shop')
-// const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
+const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
 // const profile = r => require.ensure([], () => r(require('../page/profile/profile')), 'profile')
 // const forget = r => require.ensure([], () => r(require('../page/forget/forget')), 'forget')
 // const order = r => require.ensure([], () => r(require('../page/order/order')), 'order')
@@ -49,21 +49,20 @@ import App from '../app'
 
 
 
-// export default [{
-//     path: '/',
-//     component: App, //顶层路由，匹配的组件App.vue渲染进顶层出口的<router-view>，即index.html中的<router-view>中
-//     children: [ //二级路由，要在App.vue中的<router-view>渲染组件需要配置children
-//         //地址为空时二级路由匹配''，重定向到home路径的匹配，就是下边path:'/home'的匹配
-//         {
-//             path: '',
-//             redirect: '/home'
-//         },
-//         //首页城市列表页
-//         {
-//             path: '/home',
-//             component: home
-//         }
-        // ,
+export default [{
+    path: '/',
+    component: App, //顶层路由，匹配的组件App.vue渲染进顶层出口的<router-view>，即index.html中的<router-view>中
+    children: [ //二级路由，要在App.vue中的<router-view>渲染组件需要配置children
+        //地址为空时二级路由匹配''，重定向到home路径的匹配，就是下边path:'/home'的匹配
+        {
+            path: '',
+            redirect: '/home'
+        },
+        //首页城市列表页
+        {
+            path: '/home',
+            component: home
+        },
         // //当前选择城市页
         // {
         //     path: '/city/:cityid',
@@ -129,12 +128,13 @@ import App from '../app'
         //         }, ]
         //     }, ]
         // },
-        // //登录注册页
-        // {
-        //     path: '/login',
-        //     component: login
-        // },
-        // //个人信息页
+        // 登录注册页
+        {
+            path: '/login',
+            component: login
+        }
+        // ,
+        // // 个人信息页
         // {
         //     path: '/profile',
         //     component: profile,
@@ -250,5 +250,5 @@ import App from '../app'
         //         component: pointsDetail,
         //     }, ]
         // },
-//     ]
-// }]
+    ]
+}]

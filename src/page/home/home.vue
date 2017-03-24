@@ -1,7 +1,7 @@
 <template>
   	<div>
         <head-top signin-up='home'>
-            <span slot='logo' class="head_logo"  @click="reload">ele.me</span>
+            <span slot='logo' class="head_logo"  @click="reload">lagou</span>
         </head-top>
         <nav class="city_nav">
             <div class="city_tip">
@@ -13,7 +13,7 @@
                 <svg class="arrow_right">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
                 </svg>
-            </router-link>  
+            </router-link>
         </nav>
         <section id="hot_city_container">
             <h4 class="city_title">热门城市</h4>

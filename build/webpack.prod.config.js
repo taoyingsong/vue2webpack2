@@ -13,7 +13,7 @@ module.exports = merge(baseWebpackConfig, {
     output: {
         path: config.prod.outputPath,
         publicPath: config.prod.outputPublicPath,
-        filename: 'js/[name].js?[chunkhash]'
+        filename: 'js/[name].[chunkhash].js'
     },
     module: {
         rules: utils.styleLoaders()
@@ -24,7 +24,7 @@ module.exports = merge(baseWebpackConfig, {
         }),
         new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextPlugin({
-            filename: "css/style.css?[contenthash:8]"
+            filename: "css/style.[contenthash:8].css"
         }),
         new webpack.optimize.CommonsChunkPlugin({ // 将来自node_modules下的模块提取到vendor.js（一般来讲都是外部库，短时间不会发生变化）
             name: 'vendor',

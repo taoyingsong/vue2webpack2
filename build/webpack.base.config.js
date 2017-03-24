@@ -5,11 +5,16 @@ var utils = require('./utils');
 function resolve(relPath) {
     return path.resolve(__dirname, relPath); // resolve 方法用于将相对路径转为绝对路径。
 }
-
 module.exports = {
     entry: { app: resolve('../src/main.js') },
     output: {
         filename: 'js/[name].js'
+    },
+    resolve: {
+        extensions: ['.js', '.vue', '.css', '.scss'],
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
     },
     module: {
         rules: [{

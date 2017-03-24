@@ -10,6 +10,10 @@ var cssLang = [{
     reg: /\.styl$/,
     loader: "stylus-loader"
 }, {
+    name: 'scss',
+    reg: /\.scss$/,
+    loader: "sass-loader"
+},{
     name: 'sass',
     reg: /\.scss$/,
     loader: "sass-loader"
