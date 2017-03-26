@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+const App = require('./app');
 import routes from './router/router'
 import store from './store/' // 这样居然可以用，不过导入的好像只有index.js，不知道是es6的语法还是webpack或者babel的
 import {routerMode} from './config/env'
@@ -14,14 +15,18 @@ if ('addEventListener' in document) { // 实例化FastClick的代码，详见htt
 
 Vue.use(VueRouter)
 const router = new VueRouter({
-	routes,
+	routes: routes.routes,
 	mode: routerMode,
 	strict: process.env.NODE_ENV !== 'production' // ??
 })
 
 
 new Vue({
+	el: '#app',
 	router,
 	store,
-}).$mount('#app') // $mount同el: '#app',挂载实例到#app
+	// router: router,
+	render: h => h(App)
+});
+// .$mount('#app') // $mount同el: '#app',挂载实例到#app
 

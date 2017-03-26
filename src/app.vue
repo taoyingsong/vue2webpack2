@@ -7,14 +7,6 @@
     </div>
 </template>
 
-<script>
-
-  	export default {
-    	
-  	}
-
-</script>
-
 <style lang="scss">
   	@import './assets/css/common';
 	.router-fade-enter-active, .router-fade-leave-active {

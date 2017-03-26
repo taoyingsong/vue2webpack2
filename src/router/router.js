@@ -1,4 +1,4 @@
-import App from '../app'
+// import App from '../app'
 // 组件懒加载，把路由对应的组件定义成异步组件，这样当路由被访问的时候才加载对应组件，下边第三个参数可以把某个路由下的所有组件都打包在同个异步块中
 const home = r => require.ensure([], () => r(require('../page/home/home.vue')), 'home')
 // const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
@@ -49,20 +49,28 @@ const login = r => require.ensure([], () => r(require('../page/login/login')), '
 
 
 
-export default [{
-    path: '/',
-    component: App, //顶层路由，匹配的组件App.vue渲染进顶层出口的<router-view>，即index.html中的<router-view>中
-    children: [ //二级路由，要在App.vue中的<router-view>渲染组件需要配置children
+module.exports = {
+    // component: App, //顶层路由，匹配的组件App.vue渲染进顶层出口的<router-view>，即index.html中的<router-view>中
+    // children: 
+    routes: [ //二级路由，要在App.vue中的<router-view>渲染组件需要配置children
         //地址为空时二级路由匹配''，重定向到home路径的匹配，就是下边path:'/home'的匹配
+        // {
+        //     path: '',
+        //     redirect: '/home'
+        // },
         {
             path: '',
-            redirect: '/home'
+            component: home,
         },
-        //首页城市列表页
-        {
-            path: '/home',
-            component: home
-        },
+        // {
+        //     path: '',
+        //     component: require('../page/home/home.vue')
+        // },
+        // //首页城市列表页
+        // {
+        //     path: '/login',
+        //     component: require('../page/login/login')
+        // }
         // //当前选择城市页
         // {
         //     path: '/city/:cityid',
@@ -251,4 +259,4 @@ export default [{
         //     }, ]
         // },
     ]
-}]
+}

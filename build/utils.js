@@ -13,10 +13,6 @@ var cssLang = [{
     name: 'scss',
     reg: /\.scss$/,
     loader: "sass-loader"
-},{
-    name: 'sass',
-    reg: /\.scss$/,
-    loader: "sass-loader"
 }];
 
 function genLoaders(lang) {
